@@ -1,6 +1,6 @@
-package Main;
+package main;
 
-import Commands.Commands;
+import commands.Commands;
 
 public class Main {
     public static void main(String[] args) {

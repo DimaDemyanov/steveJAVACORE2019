@@ -1,17 +1,15 @@
-package Main;
+package main;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.*;
-import Commands.*;
+import commands.*;
 
 public class Steve {
     private static final String ANS_FOR_NO_COMMAND = "Sorry, I don't understand you.";
     private Properties properties;
-    private Scanner scanner;
+    private Reader reader;
 
 
     public Properties getProperties() {
@@ -23,7 +21,7 @@ public class Steve {
     }
 
     Steve(InputStream in){
-        this.scanner = new Scanner(in);
+        this.reader = new Reader(in);
         properties = new Properties();
         try {
             properties.load(new FileInputStream("config.properties"));
@@ -35,7 +33,8 @@ public class Steve {
 
     void run(){
         while(true){
-            String [] commands = getCommands();
+            Reader.Input input = reader.getCommands();
+            String []commands = input.getCommands();
             if(commands.length > 1){
                 askSpecifiedQuestion(commands);
                 continue;
@@ -44,21 +43,10 @@ public class Steve {
                 System.out.println(ANS_FOR_NO_COMMAND);
                 continue;
             }
-            if(processCommand(commands[0])) break;
+            if(processCommand(commands[0], input.getOptions())) break;
         }
     }
 
-    private String[] getCommands(){
-        String inputString = scanner.nextLine();
-        Set<String> wordsInStr = new HashSet<String>(Arrays.asList(
-                inputString
-                        .toLowerCase()
-                        .replaceAll("[?!,.]","")
-                        .split(" ")));
-        Set<String> commandsSet = new HashSet<String>(Arrays.asList(Commands.INSTANCE.getCommands()));
-        wordsInStr.retainAll(commandsSet);
-        return  wordsInStr.toArray(new String[0]);
-    }
 
     private void askSpecifiedQuestion(String[] commands) {
         String question = "Which of this commands do you want to be processed?\n";
@@ -68,11 +56,11 @@ public class Steve {
         System.out.print(question);
     }
 
-    private boolean processCommand(String command) {
+    private boolean processCommand(String command, String [] options) {
         if(command.equals("exit"))
             return true;
         Command cmd = Commands.INSTANCE.findClass(command);
-        cmd.perform(this);
+        cmd.perform(this, options);
         return false;
     }
 }

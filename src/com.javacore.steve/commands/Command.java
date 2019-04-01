@@ -1,12 +1,12 @@
-package Commands;
+package commands;
 
-import Main.Steve;
+import main.Steve;
 
 public abstract class Command {
 
     protected String name = this.getClass().getName();
 
-    public void perform(Steve steve){
+    public void perform(Steve steve, String [] options){
         System.out.println("Command not implemented");
     }
 
