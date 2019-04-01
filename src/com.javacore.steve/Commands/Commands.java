@@ -9,6 +9,7 @@ public class Commands {
         commandsToClass.put(new String[]{"version"}, "Version");
         commandsToClass.put(new String[]{"author", "creator", "father"}, "Creator");
         commandsToClass.put(new String[]{"weather"}, "Weather");
+        commandsToClass.put(new String[]{"time"}, "Time");
     }
 
     public static String[] getCommands(){
