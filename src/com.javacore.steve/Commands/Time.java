@@ -16,11 +16,15 @@ public class Time extends Command {
 
     @Override
     public void perform() {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuffer simpleStringBuffer = new StringBuffer();
+        StringBuffer AMPMStringBuffer = new StringBuffer();
         Date now = new Date();
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        simpleDateFormat.format(now, stringBuffer, new FieldPosition(0));
-        System.out.println(now);
+        SimpleDateFormat AMPMDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
+        AMPMDateFormat.format(now, AMPMStringBuffer, new FieldPosition(0));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
+        AMPMDateFormat.format(now, simpleStringBuffer, new FieldPosition(0));
+        System.out.println(AMPMStringBuffer);
+        System.out.println(simpleStringBuffer);
     }
 }
