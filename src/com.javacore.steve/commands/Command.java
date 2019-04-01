@@ -1,8 +1,11 @@
 package commands;
 
 import main.Steve;
+//import org.apache.commons.cli.*
 
 public abstract class Command {
+
+    protected CommandLineParser
 
     protected String name = this.getClass().getName();
 

@@ -18,12 +18,15 @@ public class Time extends Command {
 
     @Override
     public void perform(Steve steve, String [] options) {
+
         StringBuffer simpleStringBuffer = new StringBuffer();
         StringBuffer AMPMStringBuffer = new StringBuffer();
+
         Date now = new Date();
 
         SimpleDateFormat AMPMDateFormat = new SimpleDateFormat(SIMPLE_DATE_FORMAT);
         AMPMDateFormat.format(now, AMPMStringBuffer, new FieldPosition(0));
+
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(AMPM_DATE_FORMAT);
         simpleDateFormat.format(now, simpleStringBuffer, new FieldPosition(0));
 
