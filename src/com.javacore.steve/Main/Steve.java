@@ -50,8 +50,12 @@ public class Steve {
 
     private String[] getCommands(){
         String inputString = scanner.nextLine();
-        Set<String> wordsInStr = new HashSet<String>(Arrays.asList(inputString.toLowerCase().replaceAll("[?!,.]","").split(" ")));
-        Set<String> commandsSet = new HashSet<String>(Arrays.asList(Commands.getCommands()));
+        Set<String> wordsInStr = new HashSet<String>(Arrays.asList(
+                inputString
+                        .toLowerCase()
+                        .replaceAll("[?!,.]","")
+                        .split(" ")));
+        Set<String> commandsSet = new HashSet<String>(Arrays.asList(Commands.INSTANCE.getCommands()));
         wordsInStr.retainAll(commandsSet);
         return  wordsInStr.toArray(new String[0]);
     }
@@ -67,16 +71,8 @@ public class Steve {
     private boolean processCommand(String command) {
         if(command.equals("exit"))
             return true;
-        String commandClassName = Commands.findClass(command);
-        Class<?> clazz = null;
-        try {
-            clazz = Class.forName("Commands." + commandClassName);
-            Constructor<?> ctor = clazz.getConstructor(Steve.class);
-            Command commandObj = (Command)ctor.newInstance(this);
-            commandObj.perform();
-        } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
-            e.printStackTrace();
-        }
+        Command cmd = Commands.INSTANCE.findClass(command);
+        cmd.perform(this);
         return false;
     }
 }

@@ -4,11 +4,7 @@ import Main.Steve;
 
 public class Creator extends Command {
 
-    public Creator(Steve steve) {
-        super(steve);
-    }
-
-    public void perform() {
+    public void perform(Steve steve) {
         System.out.println("My author is " + steve.getProperties().getProperty("creator"));
     }
 }

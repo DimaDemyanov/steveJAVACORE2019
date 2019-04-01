@@ -13,12 +13,8 @@ import java.util.Properties;
 
 public class Weather extends Command {
 
-    public Weather(Steve steve) {
-        super(steve);
-    }
-
     @Override
-    public void perform() {
+    public void perform(Steve steve) {
         Properties properties = steve.getProperties();
         try {
             HttpResponse<JsonNode> response = Unirest.get(properties.getProperty("weather-Api-URL"))

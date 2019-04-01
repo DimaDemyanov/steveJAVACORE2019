@@ -10,12 +10,9 @@ import java.time.LocalTime;
 import java.util.Date;
 
 public class Time extends Command {
-    public Time(Steve steve) {
-        super(steve);
-    }
 
     @Override
-    public void perform() {
+    public void perform(Steve steve) {
         StringBuffer simpleStringBuffer = new StringBuffer();
         StringBuffer AMPMStringBuffer = new StringBuffer();
         Date now = new Date();
