@@ -37,13 +37,20 @@ public class Steve {
             Reader.Input input = reader.getCommands();
             String []commands = input.getCommands();
             if(commands.length > 1){
+                StringBuilder commandsStr = new StringBuilder();
+                for (int i = 0; i < commands.length; i++) {
+                    commandsStr.append(commands[i] + " ");
+                }
+                Main.LOGGER.info("Getting too much commands. Variants: " + commandsStr);
                 askSpecifiedQuestion(commands);
                 continue;
             }
             if(commands.length == 0){
+                Main.LOGGER.info("No commands found in request");
                 System.out.println(ANS_FOR_NO_COMMAND);
                 continue;
             }
+            Main.LOGGER.info("Getting command: " + commands[0]);
             if(processCommand(commands[0], input.getOptions())) break;
         }
     }

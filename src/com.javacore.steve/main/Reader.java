@@ -53,9 +53,9 @@ public class Reader {
                 optionsInStr = Arrays.copyOfRange(wordsWithOptions, i, wordsWithOptions.length);
             }
         }
-        Set<String> wordsInStrSet = new HashSet<String>(Arrays.asList(wordsInStr));
+        Set<String> wordsInStrSet = new HashSet<>(Arrays.asList(wordsInStr));
 
-        Set<String> commandsSet = new HashSet<String>(Arrays.asList(Commands.INSTANCE.getCommands()));
+        Set<String> commandsSet = new HashSet<>(Arrays.asList(Commands.INSTANCE.getCommands()));
         wordsInStrSet.retainAll(commandsSet);
         return  new Input(wordsInStrSet.toArray(new String[0]), optionsInStr);
     }

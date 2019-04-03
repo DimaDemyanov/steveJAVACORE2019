@@ -13,6 +13,7 @@ public enum Commands {
         commandsToClass.put(new String[]{"time"}, new Time());
         commandsToClass.put(new String[]{"exit"}, new Exit());
         commandsToClass.put(new String[]{"new", "news"}, new News());
+        commandsToClass.put(new String[]{"log", "logs"}, new Log());
 
     }
 

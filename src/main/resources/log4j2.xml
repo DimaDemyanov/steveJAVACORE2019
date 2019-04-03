@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <RollingFile name="json_file_appender" fileName="logs/jsonlogger.json"
+                     filePattern="${log-path}/%d{yyyyMMdd}_jsonlogger-%i.json" >
+            <JSONLayout complete="true" compact="false"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10000"/>
+        </RollingFile>
+
+    </Appenders>
+
+
+    <Loggers>
+        <root level="info" additivity="false">
+            <AppenderRef ref="json_file_appender"/>
+        </root>
+    </Loggers>
+</Configuration>
