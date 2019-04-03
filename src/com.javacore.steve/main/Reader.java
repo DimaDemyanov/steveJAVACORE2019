@@ -46,10 +46,11 @@ public class Reader {
         String [] wordsInStr = null;
         String [] optionsInStr = null;
 
+        wordsInStr = wordsWithOptions;
         for (int i = 0; i < wordsWithOptions.length; i++) {
             if(wordsWithOptions[i].startsWith("-")){
-                wordsInStr = Arrays.copyOfRange(wordsWithOptions, 0, i - 1);
-                optionsInStr = Arrays.copyOfRange(wordsWithOptions, i, wordsWithOptions.length - 1);
+                wordsInStr = Arrays.copyOfRange(wordsWithOptions, 0, i);
+                optionsInStr = Arrays.copyOfRange(wordsWithOptions, i, wordsWithOptions.length);
             }
         }
         Set<String> wordsInStrSet = new HashSet<String>(Arrays.asList(wordsInStr));

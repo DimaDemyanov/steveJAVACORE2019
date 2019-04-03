@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 import commands.*;
+import org.apache.commons.cli.ParseException;
 
 public class Steve {
     private static final String ANS_FOR_NO_COMMAND = "Sorry, I don't understand you.";
@@ -60,7 +61,11 @@ public class Steve {
         if(command.equals("exit"))
             return true;
         Command cmd = Commands.INSTANCE.findClass(command);
-        cmd.perform(this, options);
+        try {
+            cmd.perform(this, options);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 }
