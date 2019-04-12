@@ -6,9 +6,10 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.database">steve_db</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">123454321</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://80.78.255.87:2020/</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://80.78.255.87:2020/steve_db</property>
 
 
 
