@@ -1,0 +1,47 @@
+[
+{
+  "timeMillis" : 1554313034994,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "No commands found in request",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1554313039137,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: time",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1554313043952,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: author",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1554313051912,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: news",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+
+]
