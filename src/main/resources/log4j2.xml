@@ -3,17 +3,27 @@
     <Appenders>
         <RollingFile name="json_file_appender" fileName="logs/jsonlogger.json"
                      filePattern="${log-path}/%d{yyyyMMdd}_jsonlogger-%i.json" >
-            <JSONLayout complete="true" compact="false"/>
+            <JSONLayout complete="false" compact="false"/>
             <Policies>
                 <SizeBasedTriggeringPolicy size="100 KB" />
             </Policies>
             <DefaultRolloverStrategy max="10000"/>
         </RollingFile>
-
+        <RollingFile name="hibernate_file_appender" fileName="logs/hibernatelogger.json"
+                     filePattern="${log-path}/%d{yyyyMMdd}_jsonlogger-%i.json" >
+            <JSONLayout complete="false" compact="false"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10000"/>
+        </RollingFile>
     </Appenders>
 
 
     <Loggers>
+        <logger level="info" name="org.hibernate" additivity="false">
+            <AppenderRef ref="hibernate_file_appender"/>
+        </logger>
         <root level="info" additivity="false">
             <AppenderRef ref="json_file_appender"/>
         </root>
