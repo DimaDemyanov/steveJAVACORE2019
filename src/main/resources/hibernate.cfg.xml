@@ -8,7 +8,7 @@
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">123454321</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://80.78.255.87:5432/</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://80.78.255.87:2020/</property>
 
 
 
@@ -20,7 +20,7 @@
 
 
 
-        <mapping class="com.javacore.steve.entities.Profile"/>
+        <mapping resource="Profile.cfg.xml"/>
 
     </session-factory>
 </hibernate-configuration>

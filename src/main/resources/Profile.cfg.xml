@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name = "Profile" table = "profiles">
+    <class name = "entities.Profile" table = "profiles">
 
         <meta attribute = "class-description">
             This class contains the profile detail.
