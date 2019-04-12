@@ -14,7 +14,7 @@ public enum Commands {
         commandsToClass.put(new String[]{"exit"}, new Exit());
         commandsToClass.put(new String[]{"new", "news"}, new News());
         commandsToClass.put(new String[]{"log", "logs"}, new Log());
-
+        commandsToClass.put(new String[]{"wait"}, new Wait());
     }
 
     public String[] getCommands(){

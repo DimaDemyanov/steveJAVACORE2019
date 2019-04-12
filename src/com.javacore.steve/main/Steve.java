@@ -7,10 +7,22 @@ import java.util.*;
 import commands.*;
 import org.apache.commons.cli.ParseException;
 
+import static commands.State.IDLE;
+
 public class Steve {
     private static final String ANS_FOR_NO_COMMAND = "Sorry, I don't understand you.";
     private Properties properties;
     private Reader reader;
+    private State state = IDLE;
+
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
 
 
     public Properties getProperties() {
@@ -68,11 +80,11 @@ public class Steve {
         if(command.equals("exit"))
             return true;
         Command cmd = Commands.INSTANCE.findClass(command);
-        try {
-            cmd.perform(this, options);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        final Steve steveCpy = this;
+        // System.out.println(state);
+        Thread thread = new Thread(() -> state.onCommand(cmd, steveCpy, options));
+        thread.start();
+
         return false;
     }
 }

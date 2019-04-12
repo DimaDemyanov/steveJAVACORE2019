@@ -1,0 +1,183 @@
+[
+{
+  "timeMillis" : 1555064333870,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: wait",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1555064336610,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: time",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+{
+  "timeMillis" : 1555064366424,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: wait",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1555064369428,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: news",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+{
+  "timeMillis" : 1555064504564,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: wait",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+
+]
+{
+  "timeMillis" : 1555064531980,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: wait",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1555064542054,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: news",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+{
+  "timeMillis" : 1555064634727,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: wait",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+
+]
+{
+  "timeMillis" : 1555064708609,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: wait",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+
+]
+{
+  "timeMillis" : 1555064783971,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: wait",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1555064787791,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: news",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1555064793999,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: version",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+{
+  "timeMillis" : 1555064822404,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: news",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1555064823480,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: time",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1555064827129,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: time",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
+, {
+  "timeMillis" : 1555064831272,
+  "thread" : "main",
+  "level" : "INFO",
+  "loggerName" : "Steve_logger",
+  "message" : "Getting command: version",
+  "endOfBatch" : false,
+  "loggerFqcn" : "org.apache.logging.log4j.spi.AbstractLogger",
+  "threadId" : 1,
+  "threadPriority" : 5
+}
