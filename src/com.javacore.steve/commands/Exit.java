@@ -1,6 +1,8 @@
 package commands;
 
-public class Exit extends Command{
+import commandsUtils.Command;
+
+public class Exit extends Command {
     public Exit() {
         name = "exit";
     }

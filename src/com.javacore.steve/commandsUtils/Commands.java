@@ -1,4 +1,6 @@
-package commands;
+package commandsUtils;
+
+import commands.*;
 
 import java.util.*;
 
@@ -14,7 +16,10 @@ public enum Commands {
         commandsToClass.put(new String[]{"exit"}, new Exit());
         commandsToClass.put(new String[]{"new", "news"}, new News());
         commandsToClass.put(new String[]{"log", "logs"}, new Log());
-
+        commandsToClass.put(new String[]{"wait"}, new Wait());
+        commandsToClass.put(new String[]{"load"}, new Load());
+        commandsToClass.put(new String[]{"list"}, new ListProfiles());
+        commandsToClass.put(new String[]{"help"}, new Help());
     }
 
     public String[] getCommands(){

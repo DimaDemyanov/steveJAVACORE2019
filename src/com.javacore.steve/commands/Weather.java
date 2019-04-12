@@ -1,5 +1,6 @@
 package commands;
 
+import commandsUtils.Command;
 import main.Steve;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -13,7 +14,7 @@ import java.util.Properties;
 
 public class Weather extends Command {
 
-    Weather() {
+    public Weather() {
         name = "weather";
     }
 

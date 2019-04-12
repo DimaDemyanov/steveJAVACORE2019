@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="INFO">
+<Configuration>
     <Appenders>
         <RollingFile name="json_file_appender" fileName="logs/jsonlogger.json"
                      filePattern="${log-path}/%d{yyyyMMdd}_jsonlogger-%i.json" >
@@ -21,11 +21,11 @@
 
 
     <Loggers>
-        <logger level="info" name="org.hibernate" additivity="false">
-            <AppenderRef ref="hibernate_file_appender"/>
-        </logger>
         <root level="info" additivity="false">
             <AppenderRef ref="json_file_appender"/>
         </root>
+        <logger level="debug" name="org.hibernate" additivity="false">
+            <AppenderRef ref="hibernate_file_appender"/>
+        </logger>
     </Loggers>
 </Configuration>

@@ -1,4 +1,4 @@
-package commands;
+package commandsUtils;
 
 import main.Steve;
 import org.apache.commons.cli.CommandLineParser;

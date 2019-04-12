@@ -1,25 +1,21 @@
 package commands;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import com.google.gson.stream.JsonReader;
-import jdk.nashorn.internal.parser.JSONParser;
+import commandsUtils.Command;
 import main.Steve;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.ParseException;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.*;
 import java.util.Scanner;
 
-public class Log extends Command{
+public class Log extends Command {
     public Log() {
         name = "log";
-        options.addOption(new Option("c", "count", true, "Count of previos commands"));
+        options.addRequiredOption("c", "count", true, "Count of previos commands");
     }
 
     @Override
@@ -50,10 +46,8 @@ public class Log extends Command{
             for (int i = 0; i < count; i++) {
                 System.out.println(arr.get(size - count + i).getAsJsonObject().get("message"));
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Cannot open log file");
         }
     }
 }

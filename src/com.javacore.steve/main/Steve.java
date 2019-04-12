@@ -4,35 +4,49 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
-import commands.*;
-import org.apache.commons.cli.ParseException;
+
+import commandsUtils.Command;
+import commandsUtils.Commands;
+import commandsUtils.State;
+import managers.ProfileManager;
+import org.hibernate.HibernateException;
+
+import static commandsUtils.State.IDLE;
 
 public class Steve {
     private static final String ANS_FOR_NO_COMMAND = "Sorry, I don't understand you.";
     private Properties properties;
     private Reader reader;
+    private State state = IDLE;
+
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
 
 
     public Properties getProperties() {
         return properties;
     }
 
-    Steve(){
+    Steve() throws IOException, HibernateException {
         this(System.in);
     }
 
-    Steve(InputStream in){
+    Steve(InputStream in) throws IOException, HibernateException {
         this.reader = new Reader(in);
         properties = new Properties();
-        try {
-            properties.load(new FileInputStream("config.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        properties.load(new FileInputStream("config.properties"));
+        ProfileManager.init();
     }
 
 
     void run(){
+        System.out.println("you can ask me something");
         while(true){
             Reader.Input input = reader.getCommands();
             String []commands = input.getCommands();
@@ -68,11 +82,11 @@ public class Steve {
         if(command.equals("exit"))
             return true;
         Command cmd = Commands.INSTANCE.findClass(command);
-        try {
-            cmd.perform(this, options);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        final Steve steveCpy = this;
+        // System.out.println(state);
+        Thread thread = new Thread(() -> state.onCommand(cmd, steveCpy, options));
+        thread.start();
+
         return false;
     }
 }

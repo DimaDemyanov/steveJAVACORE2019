@@ -9,6 +9,7 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.request.HttpRequest;
+import commandsUtils.Command;
 import main.Steve;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;

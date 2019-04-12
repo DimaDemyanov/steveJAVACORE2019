@@ -1,6 +1,6 @@
 package main;
 
-import commands.Commands;
+import commandsUtils.Commands;
 
 import java.io.InputStream;
 import java.util.Arrays;
@@ -51,6 +51,7 @@ public class Reader {
             if(wordsWithOptions[i].startsWith("-")){
                 wordsInStr = Arrays.copyOfRange(wordsWithOptions, 0, i);
                 optionsInStr = Arrays.copyOfRange(wordsWithOptions, i, wordsWithOptions.length);
+                break;
             }
         }
         Set<String> wordsInStrSet = new HashSet<>(Arrays.asList(wordsInStr));

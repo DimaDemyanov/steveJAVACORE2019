@@ -1,5 +1,6 @@
 package commands;
 
+import commandsUtils.Command;
 import main.Steve;
 
 public class Version extends Command {
