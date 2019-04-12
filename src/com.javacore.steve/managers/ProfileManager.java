@@ -88,7 +88,7 @@ public class ProfileManager {
 
         try {
             tx = session.beginTransaction();
-            List profiles = session.createQuery("FROM Profile").setMaxResults(n).list();
+            List profiles = session.createQuery("FROM Profile f ORDER BY f.id").setMaxResults(n).list();
             for (Iterator iterator = profiles.iterator(); iterator.hasNext();){
                 Profile profile = (Profile) iterator.next();
                 System.out.print("Id: " + profile.getId() + ";");

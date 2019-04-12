@@ -6,6 +6,10 @@ import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 
 public abstract class Command {
 
@@ -13,6 +17,12 @@ public abstract class Command {
     protected Options options = new Options();
 
     protected String name = this.getClass().getName();
+
+    public void before(Semaphore semaphore){}
+
+    public void perform(Steve steve, String [] options, Semaphore semaphore) throws ParseException {
+        perform(steve, options);
+    }
 
     public void perform(Steve steve, String [] options) throws ParseException {
         System.out.println("Command not implemented");

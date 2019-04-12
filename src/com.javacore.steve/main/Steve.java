@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.locks.ReentrantLock;
 
 import commandsUtils.Command;
 import commandsUtils.Commands;
@@ -18,7 +20,7 @@ public class Steve {
     private Properties properties;
     private Reader reader;
     private State state = IDLE;
-
+    private Semaphore semaphore = new Semaphore(1);
 
     public State getState() {
         return state;
@@ -46,7 +48,7 @@ public class Steve {
 
 
     void run(){
-        System.out.println("you can ask me something");
+        System.out.println("You can ask me something");
         while(true){
             Reader.Input input = reader.getCommands();
             String []commands = input.getCommands();
@@ -83,10 +85,15 @@ public class Steve {
             return true;
         Command cmd = Commands.INSTANCE.findClass(command);
         final Steve steveCpy = this;
-        // System.out.println(state);
-        Thread thread = new Thread(() -> state.onCommand(cmd, steveCpy, options));
+        state.before(cmd, semaphore);
+        Thread thread = new Thread(() -> state.onCommand(cmd, steveCpy, options, semaphore));
         thread.start();
-
+        try {
+            semaphore.acquire();
+            semaphore.release();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return false;
     }
 }

@@ -20,6 +20,8 @@ public enum Commands {
         commandsToClass.put(new String[]{"load"}, new Load());
         commandsToClass.put(new String[]{"list"}, new ListProfiles());
         commandsToClass.put(new String[]{"help"}, new Help());
+        commandsToClass.put(new String[]{"game"}, new Game());
+        commandsToClass.put(new String[]{"nra"}, new Nra());
     }
 
     public String[] getCommands(){

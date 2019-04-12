@@ -38,7 +38,7 @@ public class Reader {
         String inputString = scanner.nextLine();
         String [] wordsWithOptions = inputString
                 .toLowerCase()
-                .replaceAll("[?!,.]","")
+                .replaceAll("[?!,]","")
                 .split(" ");
 
         // Split words on options and other words. Options begin at word, which starts with '-'

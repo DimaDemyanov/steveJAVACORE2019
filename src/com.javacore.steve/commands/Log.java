@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class Log extends Command {
     public Log() {
         name = "log";
-        options.addRequiredOption("c", "count", true, "Count of previos commands");
+        options.addRequiredOption("c", "count", true, "Count of previous commands");
     }
 
     @Override
