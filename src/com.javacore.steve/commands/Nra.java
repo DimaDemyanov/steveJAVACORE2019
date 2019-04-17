@@ -16,25 +16,11 @@ import static javax.sound.midi.ShortMessage.NOTE_ON;
 public class Nra extends Command {
 
     public Nra() {
+        isLockingRequared = true;
         options.addRequiredOption("f", "file", true, "Path to midi file");
     }
 
     private static final String[] NOTE_NAMES = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
-
-    @Override
-    public void before(Semaphore semaphore) {
-        try {
-            semaphore.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void perform(Steve steve, String[] options, Semaphore semaphore) throws ParseException {
-        perform(steve, options);
-        semaphore.release();
-    }
 
 
     @Override

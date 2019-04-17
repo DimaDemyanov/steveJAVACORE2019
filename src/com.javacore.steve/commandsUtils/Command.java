@@ -15,14 +15,9 @@ public abstract class Command {
 
     protected CommandLineParser parser = new DefaultParser();
     protected Options options = new Options();
+    protected boolean isLockingRequared = false;
 
     protected String name = this.getClass().getName();
-
-    public void before(Semaphore semaphore){}
-
-    public void perform(Steve steve, String [] options, Semaphore semaphore) throws ParseException {
-        perform(steve, options);
-    }
 
     public void perform(Steve steve, String [] options) throws ParseException {
         System.out.println("Command not implemented");

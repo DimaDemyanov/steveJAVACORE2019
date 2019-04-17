@@ -85,12 +85,19 @@ public class Steve {
             return true;
         Command cmd = Commands.INSTANCE.findClass(command);
         final Steve steveCpy = this;
-        state.before(cmd, semaphore);
-        Thread thread = new Thread(() -> state.onCommand(cmd, steveCpy, options, semaphore));
-        thread.start();
         try {
-            semaphore.acquire();
-            semaphore.release();
+            Semaphore stateWaiter = new Semaphore(0);
+            state.before(cmd, semaphore);
+            Thread thread = new Thread(() -> state.onCommand(cmd, steveCpy, options, semaphore, stateWaiter));
+            thread.start();
+            stateWaiter.acquire();
+            state.after(cmd, semaphore);
+            try {
+                semaphore.acquire();
+                semaphore.release();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -28,7 +28,6 @@ public class Load extends Command {
                 String [] args = line.split(";");
                 if(fileType.equals("profile")){
                     StringBuilder nameSb = new StringBuilder();
-                    args[0] = "";
                     Arrays.stream(args).forEach((o) -> nameSb.append(o).append(" "));
                     name = nameSb.toString();
                 }

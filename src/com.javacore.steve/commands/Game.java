@@ -21,19 +21,8 @@ public class Game extends Command {
         PLAYER;
     }
 
-    @Override
-    public void before(Semaphore semaphore) {
-        try {
-            semaphore.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void perform(Steve steve, String[] options, Semaphore semaphore) throws ParseException {
-        perform(steve, options);
-        semaphore.release();
+    public Game() {
+        isLockingRequared = true;
     }
 
     @Override

@@ -22,6 +22,7 @@ public enum Commands {
         commandsToClass.put(new String[]{"help"}, new Help());
         commandsToClass.put(new String[]{"game"}, new Game());
         commandsToClass.put(new String[]{"nra"}, new Nra());
+        commandsToClass.put(new String[]{"delete"}, new Delete());
     }
 
     public String[] getCommands(){

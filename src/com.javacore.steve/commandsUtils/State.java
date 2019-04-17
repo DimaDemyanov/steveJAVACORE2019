@@ -10,26 +10,28 @@ import java.util.concurrent.locks.ReentrantLock;
 public enum State {
     IDLE{
         @Override
-        public void before(Command command, Semaphore semaphore) {
-            command.before(semaphore);
+        public void before(Command command, Semaphore semaphore) throws InterruptedException {
+            if(command.isLockingRequared) semaphore.acquire();
         }
 
         @Override
-        public void onCommand(Command command, Steve steve, String[] options, Semaphore semaphore) {
-            synchronized (this) {
-                steve.setState(steve.getState().nextState());
-            }
+        public void onCommand(Command command, Steve steve, String[] options, Semaphore semaphore, Semaphore stateWaiter) {
+            steve.setState(EXECUTING);
+            stateWaiter.release();
             try {
-                command.perform(steve, options, semaphore);
+                command.perform(steve, options);
             } catch (ParseException e) {
                 System.out.println("Cannot parse options");
             } finally {
-                synchronized (this) {
-                    steve.setState(steve.getState().nextState());
-                    System.out.println();
-                    System.out.println("you can ask me something");
-                }
+                steve.setState(IDLE);
+                System.out.println();
+                System.out.println("you can ask me something");
             }
+        }
+
+        @Override
+        public void after(Command command, Semaphore semaphore) {
+            if(!command.isLockingRequared) semaphore.release();
         }
 
         @Override
@@ -41,7 +43,7 @@ public enum State {
     },
     EXECUTING{
         @Override
-        public void onCommand(Command command, Steve steve, String[] options, Semaphore semaphore) {
+        public void onCommand(Command command, Steve steve, String[] options, Semaphore semaphore, Semaphore stateWaiter) {
             System.out.println("Busy executing command...");
         }
 
@@ -50,8 +52,8 @@ public enum State {
             return IDLE;
         }
     };
-    public void before(Command command, Semaphore semaphore){
-    }
-    public abstract void onCommand(Command command, Steve steve, String[] options, Semaphore semaphore);
+    public void before(Command command, Semaphore semaphore) throws InterruptedException {}
+    public void after(Command command, Semaphore semaphore){}
+    public abstract void onCommand(Command command, Steve steve, String[] options, Semaphore semaphore, Semaphore stateWaiter);
     abstract State nextState();
 }
